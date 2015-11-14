@@ -34,4 +34,10 @@ while ($list =~ m/$ext /)
   $list =~ s/$ext /$ext\n/;
 }
 
-print FILE "$list";
+#convert / to \ for compatibility with x5
+while ($list =~ m/\//)
+{
+  $list =~ s/\//\\/;
+}
+
+print FILE "$list\n";
