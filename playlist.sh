@@ -17,12 +17,14 @@ fi
 
 PLAYLIST+=".m3u8"
 
+echo $PLAYLIST
+
 if [ -z "${ALBUM+xxx}" ]
 then
-  list=`ls -lhR "$ARTIST"*`
+  list=`ls -lh "$ARTIST"*/*`
 #  echo $list
 else
-  list=`ls -lhR "$ARTIST"*"$ALBUM"*`
+  list=`ls -lhR "$ARTIST"*"$ALBUM"*/*`
 fi
 
 createPlaylist.pl $list $PLAYLIST
