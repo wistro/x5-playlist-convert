@@ -10,8 +10,6 @@ do
   esac
 done
 
-echo $PLAYLIST
-
 if [ -z "${PLAYLIST+xxx}" ]
 then
   PLAYLIST=$ARTIST
@@ -19,16 +17,12 @@ fi
 
 PLAYLIST+=".m3u8"
 
-echo $ARTIST
-echo $ALBUM
-echo $PLAYLIST
-
 if [ -z "${ALBUM+xxx}" ]
 then
-  list=`ls -lhR $ARTIST*`
+  list=`ls -lhR "$ARTIST"*`
   echo $list
 else
-  list=`ls -lhR $ARTIST*$ALBUM*`
+  list=`ls -lhR "$ARTIST"*"$ALBUM"*`
 fi
 
 createPlaylist.pl $list $PLAYLIST
