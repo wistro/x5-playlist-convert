@@ -24,4 +24,4 @@ foreach my $a (0..$inputs)
 #of the new file. If playlist DOES exist, just open
 #it. (both cases open the file in APPEND mode)
 open (FILE, ">>$playlist") or die "Can't write to $playlist: $!";
-print FILE "#EXTM3U\n" unless -z $playlist;
+print FILE "#EXTM3U\n" if -z $playlist;
