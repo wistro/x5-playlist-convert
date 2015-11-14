@@ -29,9 +29,9 @@ PLAYLIST+=".m3u8"
 
 if [ -z "${ALBUM+xxx}" ]
 then
-  list=`ls "$ARTIST"*/*.$EXT`
+  list=`ls "$ARTIST"\ -\ */*.$EXT`
 else
-  list=`ls "$ARTIST"*"$ALBUM"*/*.$EXT`
+  list=`ls "$ARTIST"\ -\ *"$ALBUM"*/*.$EXT`
 fi
 
 #echo $list
