@@ -16,5 +16,18 @@ foreach my $a (0..$inputs)
   $list .= ' ' . $ARGV[$a];
 }
 
-print $list;
-print $playlist;
+#print $list;
+#print $playlist;
+
+#if there is already a playlist by the name of $playlist in
+#working dir, then open in append mode, otherwise open
+#in overwrite mode and add the #EXTM3U line to beginning
+if ( -f $playlist )
+{
+  open (FILE, ">>$playlist") or die "Can't write to $playlist: $!";
+}
+else
+{
+  open (FILE, ">$playlist") or die "Can't write to $playlist: $!";
+  print FILE "#EXTM3U\n";
+}
