@@ -27,13 +27,11 @@ foreach my $a (0..$inputs)
 open (FILE, ">>$playlist") or die "Can't write to $playlist: $!";
 print FILE "#EXTM3U\n" if -z $playlist;
 
+#add newline characters after each file name
+#(assumes file names end in $ext)
 while ($list =~ m/$ext /)
 {
   $list =~ s/$ext /$ext\n/;
 }
-my @songs = split /\n/, $list;
-my $numsongs = $#songs;
-foreach my $a (0..$numsongs)
-{
-  print FILE "$songs[$a]\n";
-}
+
+print FILE "$list";
