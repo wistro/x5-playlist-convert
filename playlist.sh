@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts a:Tp option
+while getopts a:T:p: option
 do
   case "${option}"
     in
@@ -10,18 +10,25 @@ do
   esac
 done
 
-if [ -z $PLAYLIST ]
+echo $PLAYLIST
+
+if [ -z "${PLAYLIST+xxx}" ]
 then
   PLAYLIST=$ARTIST
 fi
 
 PLAYLIST+=".m3u8"
 
-if [ -z $ALBUM ]
+echo $ARTIST
+echo $ALBUM
+echo $PLAYLIST
+
+if [ -z "${ALBUM+xxx}" ]
 then
   list=`ls -lhR $ARTIST*`
+  echo $list
 else
   list=`ls -lhR $ARTIST*$ALBUM*`
 fi
 
-./createPlaylist.pl $list $PLAYLIST
+createPlaylist.pl $list $PLAYLIST
