@@ -24,4 +24,4 @@ else
   list=`ls -lhR $ARTIST*$ALBUM*`
 fi
 
-createPlaylist.pl $list $PLAYLIST
+./createPlaylist.pl $list $PLAYLIST
