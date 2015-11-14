@@ -20,7 +20,7 @@ PLAYLIST+=".m3u8"
 if [ -z "${ALBUM+xxx}" ]
 then
   list=`ls -lhR "$ARTIST"*`
-  echo $list
+#  echo $list
 else
   list=`ls -lhR "$ARTIST"*"$ALBUM"*`
 fi
