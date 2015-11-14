@@ -29,12 +29,11 @@ PLAYLIST+=".m3u8"
 
 if [ -z "${ALBUM+xxx}" ]
 then
-  list=`ls -lh "$ARTIST"*/*.$EXT`
-#  echo $list
+  list=`ls "$ARTIST"*/*.$EXT`
 else
-  list=`ls -lhR "$ARTIST"*"$ALBUM"*/*.$EXT`
+  list=`ls "$ARTIST"*"$ALBUM"*/*.$EXT`
 fi
 
-echo $list
+#echo $list
 
-createPlaylist.pl $list "$PLAYLIST"
+createPlaylist.pl $list $EXT "$PLAYLIST"

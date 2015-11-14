@@ -5,10 +5,10 @@ my $inputs = $#ARGV;
 
 #place the last input into the $playlist variable
 my $playlist = $ARGV[$inputs];
-
+my $ext = $ARGV[($inputs - 1)];
 #decrease inputs value by 1 to exclude $playlist variable
 #and initalize $list as an empty string
-$inputs--;
+$inputs -= 2;
 my $list = "";
 
 foreach my $a (0..$inputs)
@@ -18,6 +18,7 @@ foreach my $a (0..$inputs)
 
 #print $list;
 #print $playlist;
+#print $ext;
 
 #if a playlist by the name #playlist DOESN'T exist,
 #open the file, and print #EXTM3U as the first line
@@ -25,3 +26,4 @@ foreach my $a (0..$inputs)
 #it. (both cases open the file in APPEND mode)
 open (FILE, ">>$playlist") or die "Can't write to $playlist: $!";
 print FILE "#EXTM3U\n" if -z $playlist;
+
