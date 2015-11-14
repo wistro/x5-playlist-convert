@@ -27,6 +27,9 @@ PLAYLIST+=".m3u8"
 
 #echo $PLAYLIST
 
+#the next line makes ls ignore case for ease of input
+shopt -s nocaseglob
+
 if [ -z "${ALBUM+xxx}" ]
 then
   list=`ls "$ARTIST"\ -\ */*.$EXT`
