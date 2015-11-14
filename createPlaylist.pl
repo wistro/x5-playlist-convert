@@ -19,15 +19,9 @@ foreach my $a (0..$inputs)
 #print $list;
 #print $playlist;
 
-#if there is already a playlist by the name of $playlist in
-#working dir, then open in append mode, otherwise open
-#in overwrite mode and add the #EXTM3U line to beginning
-if ( -f $playlist )
-{
-  open (FILE, ">>$playlist") or die "Can't write to $playlist: $!";
-}
-else
-{
-  open (FILE, ">$playlist") or die "Can't write to $playlist: $!";
-  print FILE "#EXTM3U\n";
-}
+#if a playlist by the name #playlist DOESN'T exist,
+#open the file, and print #EXTM3U as the first line
+#of the new file. If playlist DOES exist, just open
+#it. (both cases open the file in APPEND mode)
+open (FILE, ">>$playlist") or die "Can't write to $playlist: $!";
+print FILE "#EXTM3U\n" unless -z $playlist;
