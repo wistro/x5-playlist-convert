@@ -1,0 +1,7 @@
+CURRENTLY KNOWN BUGS AS OF NOVEMBER 14, 2015
+
+1) won't run without an ARTIST input
+2) requires ARTIST to be followed by " - " before anything else
+  i) this was implemented to force the script to not match longer artist names that start with the inputted artist name
+3) requires exact artist name to be given (with leading "the" or "a" etc)
+
