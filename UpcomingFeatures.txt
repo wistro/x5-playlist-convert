@@ -1,0 +1,3 @@
+add an option to create individual playlists for every artist on the SD card
+
+somehow make it possible to add songs to the middle of a playlist (not sure how to do this yet)
